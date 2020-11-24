@@ -5,6 +5,8 @@ public class User {
 	
 	UserValidation userValidate;
 	private String firstName;
+	private String lastName;
+	private String email;
 	
 	public User() {
 		userValidate = new UserValidation();
@@ -18,10 +20,17 @@ public class User {
 	}
 	
 	public void setLastName() {
-		this.firstName = userValidate.userInputValidation("First Name");	
+		this.lastName = userValidate.userInputValidation("Last Name");	
 	}
 	public String getLastName() {
-		return this.firstName;
+		return this.lastName;
+	}
+	
+	public void setEmail() {
+		this.email = userValidate.userInputValidation("Email");	
+	}
+	public String getEmail() {
+		return this.email;
 	}
 
 }
