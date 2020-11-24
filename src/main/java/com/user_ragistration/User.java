@@ -11,10 +11,16 @@ public class User {
 	}
 	
 	public void setFirstName() {
-			final String firstNamePattern = "^[A-Z][a-z]{2,}$";
-			this.firstName = userValidate.userInputValidation(firstNamePattern, "First Name");	
+			this.firstName = userValidate.userInputValidation("First Name");	
 	}
 	public String getFirstName() {
+		return this.firstName;
+	}
+	
+	public void setLastName() {
+		this.firstName = userValidate.userInputValidation("First Name");	
+	}
+	public String getLastName() {
 		return this.firstName;
 	}
 

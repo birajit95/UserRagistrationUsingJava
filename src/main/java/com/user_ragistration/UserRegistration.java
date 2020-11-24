@@ -9,5 +9,7 @@ public class UserRegistration
         User user = new User();
         user.setFirstName();
         System.out.println(user.getFirstName());
+        user.setLastName();
+        System.out.println(user.getLastName());
     }
 }

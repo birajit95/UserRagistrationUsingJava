@@ -6,8 +6,18 @@ import java.util.regex.Pattern;
 public class UserValidation {
 	Scanner inputScanner = new Scanner(System.in);
 	
-	public String userInputValidation(String pattern , String inputTitle ){
+	static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
+	
+	public String getPattern(String inputTitle) {
+		if(inputTitle.equals("First Name") || inputTitle.equals("Last Name")) {
+			return NAME_PATTERN;
+		}
+		return null;
+	}
+	
+	public String userInputValidation(String inputTitle ){
         String userInput;
+        String pattern = getPattern(inputTitle);
         while(true){
                 System.out.print("Enter "+inputTitle+": ");
                 userInput = inputScanner.nextLine();
