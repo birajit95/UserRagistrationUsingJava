@@ -8,6 +8,7 @@ public class User {
 	private String lastName;
 	private String email;
 	private String mobileNumber;
+	private String password;
 	
 	public User() {
 		userValidate = new UserValidation();
@@ -39,6 +40,13 @@ public class User {
 	}
 	public String getMobileNumber() {
 		return this.mobileNumber;
+	}
+	
+	public void setPassword() {
+		this.password = userValidate.userInputValidation("Password");	
+	}
+	public String getPassword() {
+		return this.password;
 	}
 
 }

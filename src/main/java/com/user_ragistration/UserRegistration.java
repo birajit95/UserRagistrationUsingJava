@@ -13,7 +13,10 @@ public class UserRegistration
 //        System.out.println(user.getLastName());
 //        user.setEmail();
 //        System.out.println(user.getEmail());
-        user.setMobileNumber();
-        System.out.println(user.getMobileNumber());
+//        user.setMobileNumber();
+//        System.out.println(user.getMobileNumber());
+        
+        user.setPassword();
+        System.out.println(user.getPassword());
     }
 }
