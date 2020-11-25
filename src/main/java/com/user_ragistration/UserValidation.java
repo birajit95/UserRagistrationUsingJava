@@ -8,6 +8,7 @@ public class UserValidation {
 	
 	static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
 	static final String EMAIL_PATTERN = "^[a-zA-Z]{1}[a-zA-Z0-9]+([-\\.\\_\\+]?[0-9a-zA-Z]+)*\\@[a-zA-Z]+([\\.][a-z]{2,4})?([\\.][a-z]{2,4})$";
+	static final String MOBILE_NUMBER_PATTERN = "^(\\+91|91)[ ]{1}[6-9]{1}[0-9]{9}$";
 	
 	public String getPattern(String inputTitle) {
 		if(inputTitle.equals("First Name") || inputTitle.equals("Last Name")) {
@@ -15,6 +16,9 @@ public class UserValidation {
 		}
 		else if(inputTitle.equals("Email")) {
 			return EMAIL_PATTERN;
+		}
+		else if(inputTitle.equals("Mobile Number")) {
+			return MOBILE_NUMBER_PATTERN;
 		}
 		return null;
 	}
@@ -28,7 +32,7 @@ public class UserValidation {
                 if(Pattern.matches(pattern,String.valueOf(userInput))){
                   break;
                  }
-                else if(inputTitle.equals("Email")) {
+                else if(inputTitle.equals("Email") || inputTitle.equals("Mobile Number")) {
                 	System.out.println("\nInvalid " + inputTitle +"! Try with diffrent one.\n");
                 }
                 else{

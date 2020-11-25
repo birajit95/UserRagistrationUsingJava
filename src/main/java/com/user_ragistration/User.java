@@ -7,6 +7,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String mobileNumber;
 	
 	public User() {
 		userValidate = new UserValidation();
@@ -31,6 +32,13 @@ public class User {
 	}
 	public String getEmail() {
 		return this.email;
+	}
+	
+	public void setMobileNumber() {
+		this.mobileNumber = userValidate.userInputValidation("Mobile Number");	
+	}
+	public String getMobileNumber() {
+		return this.mobileNumber;
 	}
 
 }

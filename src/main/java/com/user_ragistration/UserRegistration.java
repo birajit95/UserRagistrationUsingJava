@@ -11,7 +11,9 @@ public class UserRegistration
 //        System.out.println(user.getFirstName());
 //        user.setLastName();
 //        System.out.println(user.getLastName());
-        user.setEmail();
-        System.out.println(user.getEmail());
+//        user.setEmail();
+//        System.out.println(user.getEmail());
+        user.setMobileNumber();
+        System.out.println(user.getMobileNumber());
     }
 }
