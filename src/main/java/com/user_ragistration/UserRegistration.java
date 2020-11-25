@@ -15,8 +15,11 @@ public class UserRegistration
 //        System.out.println(user.getEmail());
 //        user.setMobileNumber();
 //        System.out.println(user.getMobileNumber());
+//        
+//        user.setPassword();
+//        System.out.println(user.getPassword());
         
-        user.setPassword();
-        System.out.println(user.getPassword());
+        UserValidation userVal = new UserValidation();
+        userVal.checkAllEmails();
     }
 }

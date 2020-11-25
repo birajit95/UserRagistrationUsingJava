@@ -49,4 +49,43 @@ public class UserValidation {
           }
           return userInput;
    }
+	public void validateEmail(String [] emailList) {
+		for(String email : emailList) {
+			if(Pattern.matches(EMAIL_PATTERN,email)){
+                System.out.println(email +"-> pass");
+               }
+			else {
+				System.out.println(email +"-> fail ");
+			}
+		}
+	}
+	public void checkAllEmails() {
+		String invalidEmailList[] = {"abc","abc@.com.my","abc123@gmail.a","abc123@.com", 
+				"abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com",
+                 "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", 
+                 "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"};
+
+		String validEmailList[] = {"abc@yahoo.com", "abc-100@yahoo.com",
+              "abc.100@yahoo.com", "abc111@abc.com",
+                "abc-100@abc.net", "abc.100@abc.com.au",
+                "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"};
+		
+		System.out.println("\nChecking all valid emails..\n");
+		validateEmail(validEmailList);
+		System.out.println("\nChecking all Invalid emails..\n");
+		validateEmail(invalidEmailList);	
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
