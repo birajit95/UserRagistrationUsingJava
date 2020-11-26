@@ -7,76 +7,151 @@ import org.junit.Test;
 
 public class UserValidationTest 
 {
+	 UserValidation userValidation = new UserValidation();
    
     @Test
     public void ifProperFirstNameThisShouldReturnTrue(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidFirstName("Birajit");
-        Assert.assertTrue(result);
+       
+        try {
+        	 boolean result = userValidation.isValidFirstName("Birajit");
+        	 Assert.assertTrue(result);
+          }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_FIRST_NAME , e.type);
+        }
+       
+        
     }
     
     @Test
     public void ifNotProperFirstNameThisShouldReturnFalse(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidFirstName("bira");
-        Assert.assertFalse(result);
+        
+        try {
+        	 boolean result = userValidation.isValidFirstName("bira");
+             Assert.assertFalse(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_FIRST_NAME , e.type);
+        }
+        
+       
     }
     
     
     @Test
     public void ifProperLastNameThisShouldReturnTrue(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidLastName("Nath");
-        Assert.assertTrue(result);
+
+        try {
+        	boolean result = userValidation.isValidLastName("Nath");
+            Assert.assertTrue(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_LAST_NAME , e.type);
+        }
     }
     
     @Test
     public void ifNotProperLastNameThisShouldReturnFalse(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidLastName("Na");
-        Assert.assertFalse(result);
+       
+        try {
+        	boolean result = userValidation.isValidLastName("Na");
+            Assert.assertFalse(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_LAST_NAME , e.type);
+        }
+        
+        
+        
     }
     
     @Test
     public void ifProperEmailThisShouldReturnTrue(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidEmail("birajit95@gmail.com");
-        Assert.assertTrue(result);
+        
+        try {
+        	boolean result = userValidation.isValidEmail("birajit95@gmail.com");
+            Assert.assertTrue(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_EMAIL , e.type);
+        }
+        
     }
     
     @Test
     public void ifNotProperEmailThisShouldReturnFalse(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidEmail("birajit95@gmail@.com");
-        Assert.assertFalse(result);
+        
+        try {
+        	boolean result = userValidation.isValidEmail("birajit95@gmail@.com");
+            Assert.assertFalse(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_EMAIL , e.type);
+        }
     }
     
     @Test
     public void ifProperMobileNumberThisShouldReturnTrue(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidMobileNumber("91 9915518024");
-        Assert.assertTrue(result);
+        
+        try {
+        	boolean result = userValidation.isValidMobileNumber("91 9915518024");
+            Assert.assertTrue(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_MOBILE_NUMBER , e.type);
+        }
+        
     }
     
     @Test
     public void ifNotProperMobileNumberThisShouldReturnFalse(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidMobileNumber("1552580025");
-        Assert.assertFalse(result);
+      
+        try {
+        	boolean result = userValidation.isValidMobileNumber("1552580025");
+            Assert.assertFalse(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_MOBILE_NUMBER , e.type);
+        }
+        
+        
     }
     
     @Test
     public void ifProperPasswordThisShouldReturnTrue(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidPassword("birajit123@B");
-        Assert.assertTrue(result);
+        
+        try {
+        	boolean result = userValidation.isValidPassword("birajit123@B");
+            Assert.assertTrue(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_PASSWORD , e.type);
+        }
+        
     }
+    
     
     @Test
     public void ifNotProperPasswordThisShouldReturnFalse(){
-        UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.isValidPassword("birajit123");
-        Assert.assertFalse(result);
+    	
+        try {
+        	boolean result = userValidation.isValidPassword("birajit123");
+            Assert.assertFalse(result);
+        }
+        catch(UserInputInvalidException e) {
+        	System.out.println(e.getMessage());
+        	Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_PASSWORD , e.type);
+        }
+        
     }
 
     

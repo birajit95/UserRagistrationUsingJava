@@ -42,7 +42,7 @@ public class EmailValidationTest {
 									{"abc111@abc.com",true},
 									{"abc-100@abc.net",true},
 									{"abc.100@abc.com.au",true},
-									{"abc@1.com",false},
+									{"abc@1.com", false},
 									{"abc@gmail.com.com",true},
 									{"abc+100@gmail.com", true}
 
@@ -51,10 +51,18 @@ public class EmailValidationTest {
 	
 	@Test
 	public void testEmail() {
-		System.out.println(this.email);
+		
 		UserValidation emailValidate = new UserValidation();
-		boolean result = emailValidate.isValidEmail(this.email);
-		Assert.assertEquals(this.resultStatus, result);
+		try {
+			boolean result = emailValidate.isValidEmail(this.email);
+			Assert.assertEquals(this.resultStatus, result);
+		}
+		catch(UserInputInvalidException e) {
+			System.out.println(e.getMessage()+": "+this.email);
+			Assert.assertEquals(UserInputInvalidException.ExceptionType.INVALID_EMAIL, e.type);
+		}
+		
+		
 		
 	}
 	

@@ -9,7 +9,7 @@ public class UserValidation {
 	static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
 	static final String EMAIL_PATTERN = "^[a-zA-Z]{1}[a-zA-Z0-9]+([-\\.\\_\\+]?[0-9a-zA-Z]+)*\\@[a-zA-Z]+([\\.][a-z]{2,4})?([\\.][a-z]{2,4})$";
 	static final String MOBILE_NUMBER_PATTERN = "^(\\+91|91)[ ]{1}[6-9]{1}[0-9]{9}$";
-	static final String PASSWORD_PATTERN = "(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]{1})([a-zA-Z0-9]|[^a-zA-Z0-9]){8,}";
+	static final String PASSWORD_PATTERN = "(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])([a-zA-Z0-9]|[^a-zA-Z0-9]){8,}";
 	
 	public String getPattern(String inputTitle) {
 		if(inputTitle.equals("First Name") || inputTitle.equals("Last Name")) {
@@ -80,30 +80,32 @@ public class UserValidation {
 		
 	}
 	
-	 public boolean isValid(String inputTitle, String userInput) {
+	 public boolean isValid(String inputTitle, String userInput, UserInputInvalidException.ExceptionType exceptionType ) 
+			 throws UserInputInvalidException {
+		 
 	    	String inputPattern = getPattern(inputTitle);
 	    	if(Pattern.matches(inputPattern,String.valueOf(userInput))){
-             return true;
+                return true;
             }
 	    	else {
-	    		return false;
+	    		throw new UserInputInvalidException(exceptionType,"Invalid "+inputTitle);
 	    	}
 	 	}
 	 
-	 public boolean isValidFirstName(String userInput) {
-		 return isValid("First Name", userInput);
+	 public boolean isValidFirstName(String userInput) throws UserInputInvalidException {
+		 return isValid("First Name", userInput, UserInputInvalidException.ExceptionType.INVALID_FIRST_NAME);
 	 }
-	 public boolean isValidLastName(String userInput) {
-		 return isValid("Last Name", userInput);
+	 public boolean isValidLastName(String userInput) throws UserInputInvalidException {
+		 return isValid("Last Name", userInput, UserInputInvalidException.ExceptionType.INVALID_LAST_NAME);
 	 }
-	 public boolean isValidEmail(String userInput) {
-		 return isValid("Email", userInput);
+	 public boolean isValidEmail(String userInput) throws UserInputInvalidException {
+		 return isValid("Email", userInput, UserInputInvalidException.ExceptionType.INVALID_EMAIL);
 	 }
-	 public boolean isValidMobileNumber(String userInput) {
-		 return isValid("Mobile Number", userInput);
+	 public boolean isValidMobileNumber(String userInput) throws UserInputInvalidException {
+		 return isValid("Mobile Number", userInput, UserInputInvalidException.ExceptionType.INVALID_MOBILE_NUMBER);
 	 }
-	 public boolean isValidPassword(String userInput) {
-		 return isValid("Password", userInput);
+	 public boolean isValidPassword(String userInput) throws UserInputInvalidException {
+		 return isValid("Password", userInput, UserInputInvalidException.ExceptionType.INVALID_PASSWORD);
 	 }
 	
 }
