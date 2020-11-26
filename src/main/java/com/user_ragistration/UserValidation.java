@@ -49,6 +49,9 @@ public class UserValidation {
           }
           return userInput;
    }
+	
+  
+   
 	public void validateEmail(String [] emailList) {
 		for(String email : emailList) {
 			if(Pattern.matches(EMAIL_PATTERN,email)){
@@ -76,6 +79,32 @@ public class UserValidation {
 		validateEmail(invalidEmailList);	
 		
 	}
+	
+	 public boolean isValid(String inputTitle, String userInput) {
+	    	String inputPattern = getPattern(inputTitle);
+	    	if(Pattern.matches(inputPattern,String.valueOf(userInput))){
+             return true;
+            }
+	    	else {
+	    		return false;
+	    	}
+	 	}
+	 
+	 public boolean isValidFirstName(String userInput) {
+		 return isValid("First Name", userInput);
+	 }
+	 public boolean isValidLastName(String userInput) {
+		 return isValid("Last Name", userInput);
+	 }
+	 public boolean isValidEmail(String userInput) {
+		 return isValid("Email", userInput);
+	 }
+	 public boolean isValidMobileNumber(String userInput) {
+		 return isValid("Mobile Number", userInput);
+	 }
+	 public boolean isValidPassword(String userInput) {
+		 return isValid("Password", userInput);
+	 }
 	
 }
 
